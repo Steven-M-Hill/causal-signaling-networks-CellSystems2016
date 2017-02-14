@@ -9,7 +9,9 @@ function readDataCore(excludeSample)
 % Reads in "core" data - the data focussed on in the analyses in the manuscript.
 % The file DataS1.zip needs to be in the present working directory.
 %
-% Input variables:
+% readDataCore(excludeSample)
+%
+% Input:
 % excludeSample - binary; if set to 1, the samples indicated in the CSV file as excluded from analyses are skipped and are set as missing data (NaN) in the MAT file. See also Table S6.
 %
 % Output:

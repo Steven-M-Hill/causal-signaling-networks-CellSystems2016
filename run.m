@@ -15,6 +15,7 @@
 excludeSample = 1;
 readDataCore(excludeSample)
 % Reads in "complete" data - all data, including additional later time points and antibodies not focussed on in the analyses in the manuscript.
+% The additional time points are used within the function causalDescendancyMatrices.m.
 readDataComplete
 
 %% Causal descendancy matrices
@@ -22,3 +23,12 @@ readDataComplete
 % For details see STAR Methods subsection titled 'Identification of Changes Under Kinase Inhibition'.
 
 [CDMs,contextLabels,pvals_fdr,effectSizeRatios] = causalDescendancyMatrices;
+
+%% Network learning
+% Performs network learning - see Figure 5 and Table S3.
+% For details see STAR Methods subsection titled 'Network Learning' and references therein.
+% Networks are learned using a modified version of the Joint Network Inference approach of Oates et al. Annals of Applied Statistics 8, 1892–1919 (2014). See function JNI_serial_mod.
+
+lambda = 3;
+eta = 15;
+networks = networkLearning(lambda,eta);

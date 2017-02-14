@@ -9,6 +9,8 @@ function [CDMs,contextLabels,pvals_fdr,effectSizeRatios] = causalDescendancyMatr
 % For details see STAR Methods subsection titled 'Identification of Changes Under Kinase Inhibition'.
 % The functions readDataCore and readDataComplete need to be run first and the generated data files must be in the present working directory.
 %
+% [CDMs,contextLabels,pvals_fdr,effectSizeRatios] = causalDescendancyMatrices(pval_threshold,effectSize_threshold)%
+% 
 % Input:
 % pval_threshold - threshold to apply to fdr-corrected p-values to create binary CDMs (defaults to value used in manuscript: 0.05)
 % effectSize_threshold - threshold to apply to (effect size)/(replicate standard deviation) ratio (defaults to value used in manuscript: 1)

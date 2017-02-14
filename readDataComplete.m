@@ -8,8 +8,8 @@ function readDataComplete
 % Reads in "complete" data - all data, including additional later time points and antibodies not focussed on in the analyses in the manuscript.
 % The file DataS1.zip needs to be in the present working directory.
 %
-% Input variables:
-% 
+% readDataComplete
+%
 % Output:
 % Function generates 4 MAT files with filenames <cellLine>_log2_complete.mat. Each file contains a 5-dimensional array with dimensions phosphoprotein x timepoint x stimulus x inhibitor x replicate. 
 %   Phosphoprotein abundance values are on a log2 scale.

@@ -23,6 +23,6 @@ For details see STAR Methods subsection titled 'Identification of Changes Under 
 - `networkLearning.m` <br />
 Learns networks for each *(cell line, stimulus)* context - see Figure 5 and Table S3 in the paper.
 For details see STAR Methods subsection titled 'Network Learning' and references therein.
-Networks are learned using a modified version of the Joint Network Inference approach of [Oates et al. Annals of Applied Statistics 8, 1892–1919 (2014)](https://doi.org/10.1214/14-AOAS761). This modified version is provided as function `JNI_serial_mod`. The original version can be found at https://doi.org/10.1214/14-AOAS761SUPPB.
+Networks are learned using a modified version of the Joint Network Inference approach of [Oates et al. Annals of Applied Statistics 8, 1892–1919 (2014)](https://doi.org/10.1214/14-AOAS761). This modified version is provided as function `JNI_serial_mod.m`. The original version can be found at https://doi.org/10.1214/14-AOAS761SUPPB.
 - `networkLearningAssessment.m` <br />
 Code to follow.

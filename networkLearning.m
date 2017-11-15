@@ -7,7 +7,7 @@ function networks = networkLearning(lambda,eta)
 %
 % Performs network learning - see Figure 5 and Table S3.
 % For details see STAR Methods subsection titled 'Network Learning' and references therein.
-% Networks are learned using a modified version of the Joint Network Inference approach of Oates et al. Annals of Applied Statistics 8, 1892–1919 (2014). See function JNI_serial_mod.
+% Networks are learned using a modified version of the Joint Network Inference approach of Oates et al. Annals of Applied Statistics 8, 1892â€“1919 (2014). See function JNI_serial_mod.
 % The functions readDataCore and readDataComplete need to be run first and the generated data files must be in the present working directory.
 %
 % networks = networkLearning(lambda,eta)
@@ -87,7 +87,7 @@ for c=1:nCellLine
     end
 end
 
-[~,nets] = JNI_serial(D,I,G0,lambda,eta,dmax,var_sel,zeroIntercept,multiplicityPrior,selfEdges,fixedEffectRegime);
+[~,nets] = JNI_serial_mod(D,I,G0,lambda,eta,dmax,var_sel,zeroIntercept,multiplicityPrior,selfEdges,fixedEffectRegime);
 
 networks = cell2mat(nets');
 networks = reshape(networks,[35 35 8 4]);

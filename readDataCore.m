@@ -53,7 +53,7 @@ for c=1:length(cellLine)
     timeStr = {'0min','5min','15min','30min','60min','2hr','4hr'};
     timeNum = [0 5 15 30 60 120 240]; %#ok<NASGU>
     stimulus = {'Serum','PBS','EGF','Insulin','FGF1','HGF','NRG1','IGF1'};
-    inhibitor = {'DMSO','BEZ235','PD173074','AZD8055','GSK690693','GSK690693_GSK112021'};
+    inhibitor = {'DMSO','BEZ235','PD173074','AZD8055','GSK690693','GSK690693_GSK1120212'};
     dimLabel = {'protein','time','stimulus','inhibitor','replicates'}; %#ok<NASGU>
     
     dataNew = NaN*ones(length(proteinNames),length(timeStr),length(stimulus),length(inhibitor),1); % initialise 5-dimensional array

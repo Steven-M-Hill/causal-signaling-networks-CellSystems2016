@@ -16,7 +16,7 @@ function [CDMs,contextLabels,pvals_fdr,effectSizeRatios] = causalDescendancyMatr
 % effectSize_threshold - threshold to apply to (effect size)/(replicate standard deviation) ratio (defaults to value used in manuscript: 1)
 %
 % Outputs:
-% CDMs - a 3-dimensional array; proteins x (cell line,stimulus) contexts x inhibitor regime; CDMs(:,:,i) is the CDM for inhibitor regime inhibitor{i+1}, where inhibitor = {'DMSO','BEZ235','PD173074','AZD8055','GSK690693','GSK690693_GSK112021'};.
+% CDMs - a 3-dimensional array; proteins x (cell line,stimulus) contexts x inhibitor regime; CDMs(:,:,i) is the CDM for inhibitor regime inhibitor{i+1}, where inhibitor = {'DMSO','BEZ235','PD173074','AZD8055','GSK690693','GSK690693_GSK1120212'};.
 % contextLabels - string giving labels for the CDM columns (contexts)
 % pvals_fdr - a 4-dimensional array of signed fdr-corrected p-values - proteins x stimuli x cell lines x inhibitor regime.
 %               Positive/negative indicates mean DMSO value is larger/smaller than mean inhibitor regime value.
@@ -34,7 +34,7 @@ end
 
 cellLine = {'UACC812','MCF7','BT20','BT549'};  
 stimulus = {'Serum','PBS','EGF','Insulin','FGF1','HGF','NRG1','IGF1'};
-inhibitor = {'DMSO','BEZ235','PD173074','AZD8055','GSK690693','GSK690693_GSK112021'};
+inhibitor = {'DMSO','BEZ235','PD173074','AZD8055','GSK690693','GSK690693_GSK1120212'};
     
 
 %% Calculate paired t-test p-values

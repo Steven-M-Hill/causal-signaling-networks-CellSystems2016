@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Code to reproduce analysis in
-% Hill, Nesser et al. Cell Systems 4, 73-83 (2017), DOI: 10.1016/j.cels.2016.11.013.
+% Hill, Nesser et al. Cell Systems 4, 73-83.e10 (2017), DOI: 10.1016/j.cels.2016.11.013.
 %
 % See header comments in individual functions for more details of function inputs and outputs
 %
@@ -29,6 +29,7 @@ readDataComplete
 % For details see STAR Methods subsection titled 'Network Learning' and references therein.
 % Networks are learned using a modified version of the Joint Network Inference approach of Oates et al. Annals of Applied Statistics 8, 1892–1919 (2014). See function JNI_serial_mod.
 
+cellLine = {'UACC812','MCF7','BT20','BT549'};
 lambda = 3;
 eta = 15;
 networks = networkLearning(lambda,eta);

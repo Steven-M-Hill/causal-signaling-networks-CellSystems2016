@@ -8,7 +8,7 @@ function networks = networkLearning(lambda,eta)
 % Performs network learning - see Figure 5 and Table S3.
 % For details see STAR Methods subsection titled 'Network Learning' and references therein.
 % Networks are learned using a modified version of the Joint Network Inference approach of Oates et al. Annals of Applied Statistics 8, 1892–1919 (2014). See function JNI_serial_mod.
-% The functions readDataCore and readDataComplete need to be run first and the generated data files must be in the present working directory.
+% The functions readDataCore and readDataComplete need to be run first and the generated data files must be in the data directory.
 %
 % networks = networkLearning(lambda,eta)
 %
@@ -29,11 +29,11 @@ nCellLine = length(cellLine);
 
 % load data
 for c=1:nCellLine
-    load([cellLine{c},'_log2_core'])
+    load(['../data/',cellLine{c},'_log2_core'])
     dataCore = data;
     
     % use additional time points in complete data for the interpolation in the preprocessing step
-    load([cellLine{c},'_log2_complete'],'data','timeNum','antibodyUsedInd') 
+    load(['../data/',cellLine{c},'_log2_complete'],'data','timeNum','antibodyUsedInd') 
     dataComplete = data;
     dataComplete = dataComplete(antibodyUsedInd==1,:,:,:,:);
     dataCoreExtended = dataCore;

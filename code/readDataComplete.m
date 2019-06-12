@@ -4,9 +4,10 @@ function readDataComplete
 % Code to reproduce analysis in
 % Hill, Nesser et al. Cell Systems 4, 73-83 (2017), DOI: 10.1016/j.cels.2016.11.013.
 %
-% Read in data (CSV format) from supplemental zip file DataS1 (available at the DOI above) and save as MAT files.
+% Read in data (CSV format) from supplemental zip file DataS1 and save as MAT files.
 % Reads in "complete" data - all data, including additional later time points and antibodies not focussed on in the analyses in the manuscript.
-% The file DataS1.zip needs to be in the present working directory.
+% The file DataS1.zip can be found in the data folder and is also available from the publication DOI above. 
+% MAT files are saved in the data folder.
 %
 % readDataComplete
 %
@@ -20,7 +21,7 @@ function readDataComplete
 
 
 % unzip DataS1 zip file    
-unzip('DataS1.zip')
+unzip('../data/DataS1.zip','../data/')
 
 % for each cell line, read in data from CSV file and save as MAT file
 
@@ -30,7 +31,7 @@ nProt = [160,150,183,160]; % number of antibodies for each cell line
 for c=1:length(cellLine)
     
     % import data
-    fileID = fopen(['DataS1/complete/',cellLine{c},'.csv']);
+    fileID = fopen(['../data/DataS1/complete/',cellLine{c},'.csv']);
     textscan(fileID,'%s',6,'Delimiter',',');
     proteinNames = textscan(fileID,'%s',nProt(c),'Delimiter',',');
     proteinNames = proteinNames{1}';
@@ -146,6 +147,6 @@ for c=1:length(cellLine)
     sampleUsedInd = sampleUsedInd2;
     sampleUsedInd(:,:,:,max(nReps(:))+1:end) = []; %#ok<NASGU>
     
-    save([cellLine{c},'_log2_complete'],'data','proteinNames','timeStr','timeNum','stimulus','inhibitor','dimLabel','nReps','sampleUsedInd','antibodyUsedInd')
+    save(['../data/',cellLine{c},'_log2_complete'],'data','proteinNames','timeStr','timeNum','stimulus','inhibitor','dimLabel','nReps','sampleUsedInd','antibodyUsedInd')
     
 end

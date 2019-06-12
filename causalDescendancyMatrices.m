@@ -81,6 +81,9 @@ effectSizeRatios = getEffectSizeRatios;
 pvals_fdr2 = reshape(pvals_fdr,[nProt,nCellLine*nStim,nInhib]);
 effectSizeRatios2 = reshape(effectSizeRatios,[nProt,nCellLine*nStim,nInhib]);
 CDMs = abs(pvals_fdr2)<=pval_threshold & effectSizeRatios2>=effectSize_threshold;
+CDMs = CDMs*1;
+nanIdx = find(isnan(pvals_fdr2));
+CDMs(nanIdx) = NaN;
 
 contextLabels = {};
 for i=1:length(cellLine)
@@ -204,6 +207,9 @@ for c=1:length(cellLine)
     for k=2:nInhib
         es(:,:,k-1) = squeeze(abs(nanmean(data2(:,:,:,1),2)-nanmean(data2(:,:,:,k),2)));
     end
+    % if only t=0 available, set effect size to 0
+    allNaNidx = find(squeeze(all(isnan(data2(:,2:end,:,2:end)),2))); 
+    es(allNaNidx) = NaN;
     
     % effect size ratio
     effectSizeRatios(:,:,:,c) = es./mps;

@@ -7,7 +7,7 @@ function [CDMs,contextLabels,pvals_fdr,effectSizeRatios] = causalDescendancyMatr
 %
 % Generates causal descendancy matrices (CDMs) for each inhibitor regime - see Figures 4A and S3. Also related to Figure S2.
 % For details see STAR Methods subsection titled 'Identification of Changes Under Kinase Inhibition'.
-% The functions readDataCore and readDataComplete need to be run first and the generated data files must be in the present working directory.
+% The functions readDataCore and readDataComplete need to be run first and the generated data files must be in the data folder.
 %
 % [CDMs,contextLabels,pvals_fdr,effectSizeRatios] = causalDescendancyMatrices(pval_threshold,effectSize_threshold)%
 % 
@@ -110,7 +110,7 @@ function pvals = pvalsPairedT(peakShape)
 cellLine = {'UACC812','MCF7','BT20','BT549'};  
 for c=1:length(cellLine)
     
-    load([cellLine{c},'_log2_core'])
+    load(['../data/',cellLine{c},'_log2_core'])
 
     [nProt,nTimepoint,nStim,nInhib,~] = size(data);
     
@@ -163,7 +163,7 @@ cellLine = {'UACC812','MCF7','BT20','BT549'};
 
 for c=1:length(cellLine)
     
-    load([cellLine{c},'_log2_core'])
+    load(['../data/',cellLine{c},'_log2_core'])
     
     [nProt,nTimepoint,nStim,nInhib,~] = size(data);
     
@@ -232,7 +232,7 @@ function [peak peaking_region] = peakFinder(cellLine)
 
 
 % load complete data set - later time points (> 4hrs) in this file are used within the heuristic approach to determine existence of peaks
-load([cellLine,'_log2_complete'])
+load(['../data/',cellLine,'_log2_complete'])
 data = data(antibodyUsedInd==1,:,:,:,:); %#ok<NODEF> % keep only the 35 phosphoproteins contained in core data files
 
 if ndims(data)==5
